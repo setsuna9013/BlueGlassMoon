@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="com.internousdev.biggalaxy.action" extends="struts-default">
+
+		<!-- イテレータ起動 -->
+		<action name="TicketsAction" class="com.internousdev.biggalaxy.action.TicketsAction" method="execute">
+			<result name="success">/Main.jsp</result>
+		</action>
+
+		<!-- 購入 -->
+		<action name="BuyAction" class="com.internousdev.biggalaxy.action.BuyAction" method="execute">
+			<result name="success" type="redirect">/BuySuccess.jsp</result>
+			<result name="error" type="redirect">/BuyError.jsp</result>
+		</action>
+
+		<!-- ログイン -->
+		<action name="LoginAction" class="com.internousdev.biggalaxy.action.LoginAction" method="execute">
+			<result name="success">/Index.jsp</result>
+			<result name="error">/Index.jsp</result>
+			<result name="input">/Index.jsp</result>
+			<result name="TICKET">/Index.jsp</result>
+		</action>
+
+		<!-- ログアウト -->
+		<action name="LogoutAction" class="com.internousdev.biggalaxy.action.LogoutAction" method="execute">
+			<result name="success">/Index.jsp</result>
+		</action>
+
+		<!-- 新規登録画面 -->
+		<action name="CreateUserAction" class="com.internousdev.biggalaxy.action.CreateUserAction" method="execute">
+			<result name="success">/Index.jsp</result>
+			<result name="error">/CreateUser.jsp</result>
+			<result name="input">/CreateUser.jsp</result>
+		</action>
+
+		<!-- マイページ遷移 -->
+		<action name="GoMypageAction" class="com.internousdev.biggalaxy.action.GoMypageAction" method="execute">
+			<result name="success">/Mypage.jsp</result>
+			<result name="error">/Index.jsp</result>
+		</action>
+
+
+		<!-- 登録情報変更 -->
+		<action name="UpdateUserAction" class="com.internousdev.biggalaxy.action.UpdateUserAction" method="execute">
+			<result name="success">/Index.jsp</result>
+			<result name="error">/UpdateUser.jsp</result>
+			<result name="input">/UpdateUser.jsp</result>
+		</action>
+
+
+		<!-- 登録情報削除 -->
+		<action name="DeleteUserAction" class="com.internousdev.biggalaxy.action.DeleteUserAction" method="execute">
+			<result name="success">/Index.jsp</result>
+			<result name="error">/DeleteUser.jsp</result>
+			<result name="input">/DeleteUser.jsp</result>
+		</action>
+
+
+
+
+
+<!-- 現在未使用です
+		クレジットカード登録画面からの遷移先指定のアクション
+		<action name="CreditCardAction" class="com.internousdev.biggalaxy.action.CreditCardAction" method="execute">
+			<result name="success">/Index.jsp</result>
+			<result name="error">/CreditCard.jsp</result>
+			<result name="input">/CreditCard.jsp</result>
+		</action>
+
+		<action name="ProductAction" class="com.internousdev.biggalaxy.action.ProductAction" method="execute">
+			<result name="success">/TicketInfo.jsp</result>
+			<result name="error">/Index.jsp</result>
+		</action>
+		<action name="D3Action" class="com.internousdev.biggalaxy.action.D3Action" method="execute">
+			<result name="success">/D3.jsp</result>
+		</action>
+
+		<action name="GoTwitterAction" class="com.internousdev.biggalaxy.action.GoTwitterAction" method="execute">
+			<result name="success">/Login.jsp</result>
+			<result name="error">/Login.jsp</result>
+		</action>
+
+		<action name="LoginTwitterAction" class="com.internousdev.biggalaxy.action.LoginTwitterAction" method="execute">
+			<result name="success">/Mypage.jsp</result>
+			<result name="error">/CreateUser.jsp</result>
+		</action>
+
+		<action name="GoFacebookAction" class="com.internousdev.biggalaxy.action.GoFacebookAction" method="execute">
+			<result name="success">/Mypage.jsp</result>
+			<result name="error">/CreateUser.jsp</result>
+		</action>
+
+		<action name="LoginFacebookAction" class="com.internousdev.biggalaxy.action.LoginFacebookAction" method="execute">
+			<result name="success">/Mypage.jsp</result>
+			<result name="error">/CreateUser.jsp</result>
+		</action>
+
+		<action name="LoginGoogleAction" class="com.internousdev.biggalaxy.action.LoginGoogleAction" method="execute">
+			<result name="success">/Login.jsp</result>
+			<result name="error">/Login.jsp</result>
+		</action>
+
+		<action name="LoginGoogleCallbackAction" class="com.internousdev.biggalaxy.action.LoginGoogleCallbackAction"
+			method="execute">
+			<result name="success">/Mypage.jsp</result>
+			<result name="error">/CreateUser.jsp</result>
+		</action>
+
+		<action name="PaymentSelectAction" class="com.internousdev.biggalaxy.action.PaymentSelectAction" method="execute">
+			<result name="success">/PaymentConfirmation.jsp</result>
+			<result name="error">/PaymentSelect.jsp</result>
+			<result name="input">/PaymentSelect.jsp</result>
+		</action>
+
+		<action name="PaymentConfirmationAction" class="com.internousdev.biggalaxy.action.PaymentConfirmationAction" method="execute">
+			<result name="success" type="redirect">CushionPaymentConfirmationAction</result>
+			<result name="error">/PaymentSelect.jsp</result>
+			<result name="EMPTY">/TicketInfo.jsp</result>
+			<result name="INPUT">/PaymentSlect.jsp</result>
+		</action>
+
+		<action name="CushionPaymentConfirmationAction" class="com.internousdev.biggalaxy.action.CushionPaymentConfirmationAction" method="execute">
+			<result name="success">/PaymentComplete.jsp</result>
+		</action>
+
+		<action name="TicketInfoAction" class="com.internousdev.biggalaxy.action.TicketInfoAction" method="execute">
+			<result name="success">/PaymentSelect.jsp</result>
+			<result name="error">/Login.jsp</result>
+		</action>
+
+		<action name="AdminLoginAction" class="com.internousdev.biggalaxy.action.AdminLoginAction" method="execute">
+			<result name="success" type="redirect">CushionAdminLoginAction.action</result>
+			<result name="error">/AdminLogin.jsp</result>
+		</action>
+
+		<action name="CushionAdminLoginAction" class="com.internousdev.biggalaxy.action.CushionAdminLoginAction" method="execute">
+			<result name="success">/Admin.jsp</result>
+		</action>
+
+		<action name="AdminSelectEmailAction" class="com.internousdev.biggalaxy.action.AdminSelectEmailAction" method="execute">
+			<result name="success">/Admin.jsp</result>
+			<result name="error">/Admin.jsp</result>
+		</action>
+
+		<action name="AdminSelectAction" class="com.internousdev.biggalaxy.action.AdminSelectAction" method="execute">
+			<result name="success">/Admin.jsp</result>
+			<result name="error">/Admin.jsp</result>
+		</action>
+
+		<action name="AdminInsertTicketInfoAction" class="com.internousdev.biggalaxy.action.AdminInsertTicketInfoAction" method="execute">
+			<result name="success">/Admin.jsp</result>
+			<result name="error">/Admin.jsp</result>
+			<result name="input">/Admin.jsp</result>
+		</action>
+
+		<action name="AdminLogoutAction" class="com.internousdev.biggalaxy.action.AdminLogoutAction" method="execute">
+			<result name="success">/AdminLogin.jsp</result>
+			<result name="error">/Admin.jsp</result>
+		</action>
+
+		<action name="PaymentCashAction" class="com.internousdev.biggalaxy.action.PaymentCashAction" method="execute">
+			<result name="success" type="redirect">CushionPaymentAction.action</result>
+			<result name="error">/PaymentSelect.jsp</result>
+			<result name="input">/PaymentSelect.jsp</result>
+		</action>
+
+		<action name="CushionPaymentAction" class="com.internousdev.biggalaxy.action.CushionPaymentAction" method="execute">
+			<result name="success">/PaymentConfirmation.jsp</result>
+		</action>
+
+		<action name="GobackselectAction" class="com.internousdev.biggalaxy.action.GobackselectAction" method="execute">
+			<result name="success">/TicketInfo.jsp</result>
+			<result name="error">/TicketInfo.jsp</result>
+		</action>
+
+		<action name="GoBackPaymentConfirmationAction" class="com.internousdev.biggalaxy.action.GoBackPaymentConfirmationAction" method="execute">
+			<result name="success">/PaymentSelect.jsp</result>
+			<result name="error">/PaymentSelect.jsp</result>
+		</action>
+
+		<action name="UpdateUserAction2" class="com.internousdev.biggalaxy.action.UpdateUserAction2" method="execute">
+			<result name="success">/UpdateUser.jsp</result>
+			<result name="error">/UpdateUser.jsp</result>
+			<result name="input">/UpdateUser.jsp</result>
+		</action>
+
+ -->
+	</package>
+</struts>
